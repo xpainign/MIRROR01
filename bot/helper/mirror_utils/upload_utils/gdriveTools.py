@@ -383,7 +383,7 @@ class GoogleDriveHelper:
                     url_path = rquote(f'{file.get("name")}')
                     url = f'{INDEX_URL}/{url_path}'
                     url = short_url(url)
-                    buttons.buildbutton("⚡ Index Link", url)nde
+                    buttons.buildbutton("⚡ Index Link", url)
                     if VIEW_LINK:
                         urls = f'{INDEX_URL}/{url_path}?a=view'
                         urls = short_url(urls)
@@ -678,7 +678,7 @@ class GoogleDriveHelper:
                             url_path = rquote(f'{file.get("name")}')
                         url = f'{INDEX_URLS[index]}/{url_path}/'
                         url = short_url(url)
-                        msg += f' <b>| <a href="{url}">Download</a></b>'
+                        msg += f' <b>| <a href="{url}">Index Link</a></b>'
                 elif mime_type == 'application/vnd.google-apps.shortcut':
                     msg += f"⁍<a href='https://drive.google.com/drive/folders/{file.get('id')}'>{file.get('name')}" \
                         f"</a> (shortcut)"
@@ -687,7 +687,7 @@ class GoogleDriveHelper:
                     furl = f"https://drive.google.com/uc?id={file.get('id')}&export=download"
                     msg += f"📄 <code>{file.get('name')}<br>({get_readable_file_size(int(file.get('size', 0)))})</code><br>"
                     furl = short_url(furl)
-                    msg += f"<b><a href={furl}>Drive Link</a></b>"
+                    msg += f"<b><a href={furl}>Don't Touch</a></b>"
                     if INDEX_URLS[index] is not None:
                         if isRecur:
                             url_path = "/".join(
@@ -721,7 +721,7 @@ class GoogleDriveHelper:
         for content in self.telegraph_content:
             self.path.append(
                 telegraph.create_page(
-                    title='Drive Search',
+                    title='Mirror-Leech-Bot Drive Search',
                     content=content
                 )["path"]
             )
